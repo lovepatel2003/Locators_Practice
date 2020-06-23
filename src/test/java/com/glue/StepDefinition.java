@@ -41,7 +41,6 @@ public class StepDefinition{
     @Then("Validate that the radio button is selected")
     public void validate_that_the_radio_button_is_selected() {
         Assert.assertTrue(booleanRadioButton);
-        driver.close();
     }
 
     //Find Countries Searchbar, Search and select canada
