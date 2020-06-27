@@ -44,3 +44,9 @@ Feature: Rahul Shetty Automation Project
     And Click on Ok
     And Click on Confirm
     And Click on Cancel
+
+  Scenario: Check Upload option
+    Given Oepn Guru upload website demo
+    When Click on file upload button and pass the filepath
+    Then Check terms and conditions checkbox and click submit
+    And validate success message
