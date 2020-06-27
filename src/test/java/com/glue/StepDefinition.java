@@ -11,6 +11,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pageFactory.Annotations;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
@@ -188,4 +190,41 @@ public class StepDefinition{
     public void clickOnCancel() {
         driver.switchTo().alert().dismiss();
     }
+
+
+
+    @Given("Oepn Guru upload website demo")
+    public void oepnGuruUploadWebsiteDemo() {
+        driver.manage().window().maximize();
+        driver.get("http://demo.guru99.com/test/upload/");
+    }
+
+    @When("Click on file upload button and pass the filepath")
+    public void clickOnFileUploadButtonAndPassTheFilepath() {
+        objAnnotations = new Annotations(driver);
+        File keys = new File("Media/samleUpload.jpg");
+        String absoluteKeys = keys.getAbsolutePath();
+        System.out.println(absoluteKeys);
+        objAnnotations.sendKeysWebElementChooseFile(absoluteKeys);
+    }
+
+    @Then("Check terms and conditions checkbox and click submit")
+    public void checkTermsAndConditionsCheckboxAndClickSubmit() {
+        driver.findElement(By.id("terms")).click();
+        driver.findElement(By.name("send")).click();
+
+    }
+
+    @And("validate success message")
+    public void validateSuccessMessage() throws InterruptedException {
+        String expectedMessage = "1 file\n" + "has been successfully uploaded.";
+
+        String actualMessage = driver.findElement(By.xpath("//*[@id='res']")).getText();
+        Thread.sleep(4000);
+        System.out.println(actualMessage);
+
+        Assert.assertEquals(expectedMessage, actualMessage);
+    }
+
+
 }

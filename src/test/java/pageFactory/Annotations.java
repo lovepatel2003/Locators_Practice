@@ -114,4 +114,13 @@ public class Annotations {
     public void clickWebElementEnterNameTextFieldConfirmButton(){
         getWebElementEnterNameTextFieldConfirmButton.click();
     }
+
+    @FindBy(how = How.XPATH,using = "//*[@id='uploadfile_0']")
+    WebElement webElementChooseFile;
+
+    public void sendKeysWebElementChooseFile(String keys){
+        webElementChooseFile.sendKeys(keys);
+    }
+
+    //@FindBy
 }
