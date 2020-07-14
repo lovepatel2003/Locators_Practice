@@ -12,7 +12,6 @@ Feature: Rahul Shetty Automation Project
     Then Search Cana
     And Click Canada
 
-    @testtemp
   Scenario: Checking dropdown menu
     Given Open Rahul Shetty Website
     When Click on dropdown menu

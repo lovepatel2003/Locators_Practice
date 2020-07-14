@@ -1,19 +1,18 @@
 package Browser;
 
-import org.junit.After;
-import org.junit.Before;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class OpenBrowser {
-    WebDriver driver;
-    String browser="chrome";
+    RemoteWebDriver driver;
+    String browser="firefox";
 
     @Before
-    public WebDriver browserOpen(){
+    public RemoteWebDriver browserOpen(){
 
         if (browser.toLowerCase().equals("chrome")){
             System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver");
@@ -31,6 +30,5 @@ public class OpenBrowser {
     public void tearDown(){
         System.out.println("sbjdfkdsfjkdsfjds");
         driver.quit();
-
     }
 }

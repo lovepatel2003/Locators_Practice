@@ -10,6 +10,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import pageFactory.Annotations;
 
 import java.io.File;
@@ -19,7 +20,7 @@ import java.util.Set;
 
 public class StepDefinition{
     OpenBrowser objOpenBrowser = new OpenBrowser();
-    WebDriver driver = objOpenBrowser.browserOpen();
+    RemoteWebDriver driver = objOpenBrowser.browserOpen();
     Boolean booleanRadioButton;
     Boolean booleanCheckBox;
     Annotations objAnnotations;

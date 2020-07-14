@@ -8,8 +8,8 @@ Feature: Download Functionality
 
   Scenario Outline: Test sign in in Gmail
     Given go to gmail login webpage
-    When enter <email> and <password> to sign in
+    When enter <email> and "<password>" to sign in
     Then validate the confirmation message
     Examples:
-      | email                    | password       |
-      | lovepatel200396@gmailcom | sjahdfjhdsbfds |
+      | email                      | password       |
+      | lovepatel.200396@gmail.com | sjahdfjhdsbfds |

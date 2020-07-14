@@ -1,13 +1,17 @@
 package pageFactory;
 
+import module.Wait;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 public class DownloadAnnotations {
-    public DownloadAnnotations(WebDriver driver) {
+    private final RemoteWebDriver driver;
+    public DownloadAnnotations( RemoteWebDriver driver) {
+        this.driver = driver;
         //this.driver=driver;
         PageFactory.initElements(driver,this);
     }
@@ -28,6 +32,7 @@ public class DownloadAnnotations {
     WebElement webElementGmailSignIn;
 
     public void sendKeysWebElementGmailSignIn(String emailKeys){
+        Wait.execute(driver, webElementGmailSignIn);
         webElementGmailSignIn.sendKeys(emailKeys);
     }
 
@@ -35,14 +40,18 @@ public class DownloadAnnotations {
     WebElement webElementGmailSignInNextButton;
 
     public void clickWebElementGmailSignInNextButton(){
+        Wait.execute(driver, webElementGmailSignInNextButton);
         webElementGmailSignInNextButton.click();
     }
 
     @FindBy(how = How.XPATH,using = "//*[@id='password']/div[1]/div/div[1]/input")
     WebElement webElementGmailPassword;
 
-    public void sendKeyswebElementGmailPassword(String passwordKeys){
-        webElementGmailSignIn.sendKeys(passwordKeys);
+    public void sendKeyswebElementGmailPassword(String passwordKeys) {
+        //Thread.sleep(5000);
+
+        Wait.execute(driver, webElementGmailPassword);
+        webElementGmailPassword.sendKeys(passwordKeys);
     }
 
     @FindBy(how = How.XPATH,using = "//*[@id=\"password\"]/div[1]/div/div[1]/input")
